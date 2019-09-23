@@ -4,10 +4,10 @@ public class vars{
         float num2;
 
         System.out.println("Introdueix un numero:");
-        num1 = Float.parseInt(System.console().readLine());
+        num1 = Integer.parseInt(System.console().readLine());
 
         System.out.println("Introdueix un altre numero:");
-        num2 = Float.parseInt(System.console().readLine());
+        num2 = Integer.parseInt(System.console().readLine());
 
 
     System.out.println("La suma de " +num1+ " i " +num2+ " es " +(num1+num2));
