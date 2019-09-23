@@ -1,7 +1,7 @@
 public class vars{
     public static void main([] args) {
-        float num1;
-        float num2;
+        int num1;
+        int num2;
 
         System.out.println("Introdueix un numero:");
         num1 = Integer.parseInt(System.console().readLine());
