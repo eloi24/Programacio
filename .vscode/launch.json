@@ -1,0 +1,16 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - vars",
+            "request": "launch",
+            "mainClass": "vars"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Vars",
+            "request": "launch",
+            "mainClass": "Vars"
+        }
+    ]
+}
