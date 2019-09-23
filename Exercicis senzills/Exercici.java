@@ -11,6 +11,6 @@ public class Exercici {
         System.out.println("Introdueix el teu cognom");
         Domini = System.console().readLine();
         
-        System.out.println("La teva adreça de correu és:" +Nom+.+Cognom+"@"+Domini);
+        System.out.println("La teva adreça de correu es:" +Nom+.+Cognom+"@"+Domini);
     }
 }
