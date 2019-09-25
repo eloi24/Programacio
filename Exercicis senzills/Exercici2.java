@@ -7,7 +7,8 @@ public class Exercici2 {
       altura = Float.parseFloat(System.console().readLine());
       System.out.println("Introdueix el teu pes en kg: ");
       pes = Float.parseFloat(System.console().readLine());
-      imc = pes/(altura*altura)*10000;
+      altura = (altura/100)
+      imc = pes/Math.pow(altura, 2);
       System.out.println(+imc);
     }
 }
