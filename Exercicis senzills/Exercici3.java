@@ -13,7 +13,7 @@ public class Exercici3{
         edat = Float.parseFloat(System.console().readLine()) ;
         
 
-        if (edat <= 16) {
+        if (edat < 16) {
              if (sexe.equals("M")){
                  System.out.println( nom+ " la teva categoria és Junior Masculí");
             }
