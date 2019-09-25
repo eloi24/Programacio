@@ -13,7 +13,7 @@ public class Exercici4{
         descompte = Float.parseFloat(System.console().readLine()) ;
 
 preufinal = Preu-((Preu*15)/100);
-System.out.println("El preu final de "+article+" és "+preufinal );
+System.out.println("El preu final de "+article+" és "+preufinal+ "El descompte és de el "+descompte+" per cent" );
 
 
 
