@@ -15,7 +15,7 @@ DecimalFormat format = new DecimalFormat("#.00");
         descompte = Float.parseFloat(System.console().readLine()) ;
 
 preufinal = Preu-((Preu*descompte)/100);
-System.out.println("El preu final de "+article+" és " +(format.format(preufinal))+ ",el descompte és de el "+descompte+" per cent" );
+System.out.println("El preu final de "+article+" és " +(format.format(preufinal))+ ",el descompte és de el "  +descompte+" per cent" );
 
 
 
