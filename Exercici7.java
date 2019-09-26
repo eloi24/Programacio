@@ -7,5 +7,7 @@ public class Exercici7{
     num++;
     System.out.println("Intent número "+num );
      }
+     System.out.println("Has necessitat "+num+" intents");
     }
+   
 }
