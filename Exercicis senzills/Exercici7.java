@@ -1,11 +1,16 @@
 public class Exercici7{
     public static void main(String[] args) {
+     long num= 0;
+     boolean veritat = false;    
      long aleatori = System.currentTimeMillis()%1000;
-     int num; 
-     num = 0; 
-     while (aleatori!=num){
-    num++;
+
+     while (veritat==false){
+    num = System.currentTimeMillis()%1000; 
     System.out.println("Intent número "+num );
+
+if (num==aleatori){
+    veritat=true;
+}
      }
      System.out.println("Has necessitat "+num+" intents");
     }
