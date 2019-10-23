@@ -132,39 +132,38 @@ public class matrius {
     int contador1 = 0;
     int contador2 = 0;
     int contador3 = 0;
+    int contador4 = 1;
     boolean comtador = false;
-    int random;
+    int random = 0;
 
     for (int e = 0; e < daus.length; e++) {
+      System.out.print("\n");
 
-      if (contador1 >=6  && contador2 >=6  && contador3 >=6 ) {
+      if (contador1 >= 6 && contador2 >= 6 && contador3 >= 6) {
         System.out.print("\n");
         System.out.println("Bingo");
-        for (int d = 0; d < arraybingo.length; d++) {
-          System.out.print("\n");
-          System.out.print("\n");
-
-          for (int f = 0; f < arraybingo[d].length; f++) {
-            System.out.print(" " + arraybingo[d][f] + "\t");
-          }
-        }
+        System.out.println("Bola n: " + contador4);
         break;
       }
       comtador = false;
       while (!comtador) {
-        random = r.nextInt(89) + 1;
-        if (contador1 == 100 && contador2 == 100 && contador3 == 100) {
-                    System.out.print("\n");
-                    System.out.println("Bingo");
-                    break;
-                  }
-        System.console().readLine();
-        if (random == daus[random]) {
 
+        if (contador1 == 100 && contador2 == 100 && contador3 == 100) {
+          System.out.print("\n");
+          System.out.println("Bola n: " + contador4);
+          System.out.println("Bingo");
+          break;
+        }
+        if (daus[random] == random) {
+          random = r.nextInt(88) + 1;
         } else {
           System.out.print("\n");
-        System.out.print("apreta intro per generar num ");
+          contador4++;
+          System.out.println("Ha sortit: " + random);
           if (random != daus[random]) {
+            System.out.println("Bola n: " + contador4);
+            System.out.print("apreta intro per generar num ");
+            System.console().readLine();
             daus[random] = random;
             for (int i = 0; i < array.length; i++) {
               for (int j = 0; j < array[i].length; j++) {
@@ -183,25 +182,21 @@ public class matrius {
                   }
                   if (contador1 == 6) {
                     System.out.println("Fila Complerta!");
-                    contador1=100;
+                    contador1 = 100;
                     ;
 
                   }
                   if (contador2 == 6) {
                     System.out.println("Fila Complerta!");
-                    contador2=100;
-                    
-                    
+                    contador2 = 100;
 
                   }
                   if (contador3 == 6) {
                     System.out.println("Fila Complerta!");
-                    contador3=100;
-                    
-                    
+                    contador3 = 100;
 
                   }
-                  
+
                   for (int d = 0; d < arraybingo.length; d++) {
                     System.out.print("\n");
                     System.out.print("\n");
@@ -210,6 +205,7 @@ public class matrius {
                       System.out.print(" " + arraybingo[d][f] + "\t");
                     }
                   }
+
                   comtador = true;
                 }
               }
