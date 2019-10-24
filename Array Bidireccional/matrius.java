@@ -132,14 +132,19 @@ public class matrius {
     int contador1 = 0;
     int contador2 = 0;
     int contador3 = 0;
-    int contador4 = 1;
+    int contador4 = 0;
     boolean comtador = false;
     int random = 0;
+    boolean linia=false;
+    boolean linia1=false;
+    boolean linia2=false;
+
+
 
     for (int e = 0; e < daus.length; e++) {
       System.out.print("\n");
 
-      if (contador1 >= 6 && contador2 >= 6 && contador3 >= 6) {
+      if (linia == true && linia1 == true && linia2 == true){
         System.out.print("\n");
         System.out.println("Bingo");
         System.out.println("Bola n: " + contador4);
@@ -148,7 +153,7 @@ public class matrius {
       comtador = false;
       while (!comtador) {
 
-        if (contador1 == 100 && contador2 == 100 && contador3 == 100) {
+        if (linia == true && linia1== true && linia2 == true) {
           System.out.print("\n");
           System.out.println("Bola n: " + contador4);
           System.out.println("Bingo");
@@ -180,20 +185,22 @@ public class matrius {
                   if (i == 2) {
                     contador3++;
                   }
-                  if (contador1 == 6) {
-                    System.out.println("Fila Complerta!");
-                    contador1 = 100;
-                    ;
+                  if (contador1 == 6 && !linia) {
+                    System.out.println("Fila 1 Complerta!");
+                    linia=true;
+
+                    
 
                   }
-                  if (contador2 == 6) {
-                    System.out.println("Fila Complerta!");
-                    contador2 = 100;
+                  if (contador2 == 6 && !linia1) {
+                    System.out.println("Fila 2 Complerta!");
+                   
+                    linia1=true;
 
                   }
-                  if (contador3 == 6) {
-                    System.out.println("Fila Complerta!");
-                    contador3 = 100;
+                  if (contador3 == 6 && !linia2) {
+                    System.out.println("Fila 3 Complerta!");
+                    linia2=true;
 
                   }
 
