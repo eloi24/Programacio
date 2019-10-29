@@ -116,7 +116,7 @@ for (int i=1;i<mostrapantalla.length-1;i++){
     }
 }
 
-// For per veure on són les mines 
+// For per veure on són les mines x mines b no mina
 
 // for (int i=1;i<mina.length-1;i++){
 //     System.out.print("\n");
