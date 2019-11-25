@@ -3,6 +3,8 @@ import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class usuaris {
     public static Scanner sc = new Scanner(System.in);
@@ -43,6 +45,10 @@ public class usuaris {
                 System.out.println("Adeu, fins un altre!");
                 ok = true;
                 break;
+
+            case "buscar":
+            System.out.println("Introduiex els paràmetres de busca: ");
+             cerca(usuaris);
             }
         }
 
@@ -51,7 +57,9 @@ public class usuaris {
     public static void mostraopcio() {
         System.out.println("Opció 1: Afegir");
         System.out.println("Opció 2 : Login");
-        System.out.println("Opció 3 : Sortir");
+        System.out.println("Opció 3 : Buscar");
+        System.out.println("Opció 4 : Sortir");
+
     }
 
     public static int demanausuari(String[][] usuaris, int numusuari) {
@@ -123,38 +131,76 @@ public class usuaris {
         usuaris[4][numusuari] = sc.nextLine();
         String[] datauser = usuaris[4][numusuari].split("/");
 
-        if (Integer.parseInt(datavui[1]) <= Integer.parseInt(datauser[1])) {
-            if (Integer.parseInt(datavui[0]) >= Integer.parseInt(datauser[0])) {
-                edat[numusuari] = (Integer.parseInt(datavui[2]) - Integer.parseInt(datauser[2]));
-                System.out.println(edat[numusuari]);
-            } else {
-                edat[numusuari] = (Integer.parseInt(datavui[2]) - Integer.parseInt(datauser[2]) - 1);
-                System.out.println(edat[numusuari]);
-            }
+        
 
-        } else {
-            edat[numusuari] = (Integer.parseInt(datavui[2]) - Integer.parseInt(datauser[2]));
-            System.out.println(edat[numusuari]);
+        if (Integer.parseInt(datauser[0]) <=  Integer.parseInt(datavui[0])){
+if (Integer.parseInt(datauser[1]) <=  Integer.parseInt(datavui[1])){
+    edat[numusuari]=Integer.parseInt(datavui[2])-Integer.parseInt(datauser[2]);
+
+}if (Integer.parseInt(datauser[1]) >  Integer.parseInt(datavui[1])) {
+    edat [numusuari]= Integer.parseInt(datavui[2])-Integer.parseInt(datauser[2])-1;
+}
         }
-
-    }
+        else if (Integer.parseInt(datauser[0]) >  Integer.parseInt(datavui[0])){
+            edat [numusuari]= Integer.parseInt(datavui[2])-Integer.parseInt(datauser[2])-1;
+        }
+        System.out.println(edat[numusuari]);
+        }
+        
+    
 
     public static void mirausuari(String[][] usuaris, int numusuari) {
-        System.out.println("hola");
-
-        while (true) {
-            usuaris[5][numusuari] = sc.nextLine();
+        boolean repetit = true;
+        while (repetit) {
+            String nom = sc.nextLine();
+            repetit = false;
             for (int i = 0; i < usuaris[0].length; i++) {
-                if (usuaris[5][numusuari] == usuaris[5][i]) {
-                    break;
-                } else {
-                    System.out.println("Usuari exsistent Introdueix un altre nom d'usuari");
-                    usuaris[5][numusuari] = sc.nextLine();
+                if (nom.equalsIgnoreCase(usuaris[5][i])) {
+                    repetit = true;
+                    System.out.println("Usuari ja existeix");
                 }
             }
+            usuaris[5][numusuari] = nom;
+        }
 
-            break;
+    }
+
+public static void cerca (String [][] usuaris){
+String busca = sc.nextLine();
+Pattern patro = Pattern.compile(busca);
+for (int i =0;i<usuaris.length;i++){
+    
+    for (int j =0;j<usuaris[0].length;j++){
+        boolean fila = false;
+        Matcher m = patro.matcher(usuaris[i][j]);
+        if (m.find() && !fila){
+            System.out.print("\n");
+            System.out.println("-----Info de l'usuari que conté el paràmetre ----------");
+            System.out.println("Nom ");
+            System.out.println(usuaris[0][j]);
+            System.out.println("Cognom ");
+            System.out.println(usuaris[1][j]);
+            System.out.println("Adreça ");
+            System.out.println(usuaris[2][j]);
+            System.out.println("Població: ");
+            System.out.println(usuaris[3][j]);
+            System.out.println("Data de Naixement dd/MM/yyyy");
+            System.out.println(usuaris[4][j]);
+            System.out.println("Nom d'usuari ");
+            System.out.println(usuaris[5][j]);
+            System.out.println("Contrasenya: ");
+            System.out.println(usuaris[6][j]);
+            System.out.println("---------------");
+            System.out.print("\n");
+            fila = true;
         }
     }
+}
+
+}
+
+
+
+
 
 }
