@@ -13,11 +13,9 @@ public class usuaris {
     public static String[][] usuaris;
     public static int edat[] = new int[columnes];
 
-    // public static DateTimeFormatter dtf = new DateTimeFormatter();
     public static void main(String[] args) {
         int numusuari = 0;
         usuaris = new String[files][columnes];
-        // dtf = ;
         boolean ok = false;
         // Omplir array
         for (int i = 0; i < usuaris.length; i++) {
@@ -169,9 +167,8 @@ public static void cerca (String [][] usuaris){
 String busca = sc.nextLine();
 Pattern patro = Pattern.compile(busca);
 for (int i =0;i<usuaris.length;i++){
-    
+    boolean fila = false; 
     for (int j =0;j<usuaris[0].length;j++){
-        boolean fila = false;
         Matcher m = patro.matcher(usuaris[i][j]);
         if (m.find() && !fila){
             System.out.print("\n");
