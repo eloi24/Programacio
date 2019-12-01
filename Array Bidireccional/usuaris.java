@@ -45,18 +45,29 @@ public class usuaris {
                 break;
 
             case "buscar":
-            System.out.println("Introduiex els paràmetres de busca: ");
-             cerca(usuaris);
+                System.out.println("Introduiex els paràmetres de busca: ");
+                cerca(usuaris);
+                break;
+
+            case "ordenar":
+                System.out.println("Ordenar de manera ascendent o descendent ?");
+                ordenar(edat);
+                mostraedats(edat);
+                break;
             }
         }
 
     }
 
     public static void mostraopcio() {
-        System.out.println("Opció 1: Afegir");
-        System.out.println("Opció 2 : Login");
-        System.out.println("Opció 3 : Buscar");
-        System.out.println("Opció 4 : Sortir");
+        System.out.println("Opcions");
+        System.out.println("-------------------");
+        System.out.println("Afegir");
+        System.out.println("Login");
+        System.out.println("Buscar");
+        System.out.println("Sortir");
+        System.out.println("Ordenar");
+        System.out.println(" ");
 
     }
 
@@ -129,23 +140,26 @@ public class usuaris {
         usuaris[4][numusuari] = sc.nextLine();
         String[] datauser = usuaris[4][numusuari].split("/");
 
-        
+        if (Integer.parseInt(datauser[0]) <= Integer.parseInt(datavui[0])) {
+            if (Integer.parseInt(datauser[1]) <= Integer.parseInt(datavui[1])) {
+                edat[numusuari] = Integer.parseInt(datavui[2]) - Integer.parseInt(datauser[2]);
 
-        if (Integer.parseInt(datauser[0]) <=  Integer.parseInt(datavui[0])){
-if (Integer.parseInt(datauser[1]) <=  Integer.parseInt(datavui[1])){
-    edat[numusuari]=Integer.parseInt(datavui[2])-Integer.parseInt(datauser[2]);
+            }
+            if (Integer.parseInt(datauser[1]) > Integer.parseInt(datavui[1])) {
+                edat[numusuari] = Integer.parseInt(datavui[2]) - Integer.parseInt(datauser[2]) - 1;
+            }
+        } else {
+            if (Integer.parseInt(datauser[1]) <= Integer.parseInt(datavui[1])) {
+                edat[numusuari] = Integer.parseInt(datavui[2]) - Integer.parseInt(datauser[2]);
 
-}if (Integer.parseInt(datauser[1]) >  Integer.parseInt(datavui[1])) {
-    edat [numusuari]= Integer.parseInt(datavui[2])-Integer.parseInt(datauser[2])-1;
-}
-        }
-        else if (Integer.parseInt(datauser[0]) >  Integer.parseInt(datavui[0])){
-            edat [numusuari]= Integer.parseInt(datavui[2])-Integer.parseInt(datauser[2])-1;
+            }
+            if (Integer.parseInt(datauser[1]) > Integer.parseInt(datavui[1])) {
+                edat[numusuari] = Integer.parseInt(datavui[2]) - Integer.parseInt(datauser[2]) - 1;
+            }
+
         }
         System.out.println(edat[numusuari]);
-        }
-        
-    
+    }
 
     public static void mirausuari(String[][] usuaris, int numusuari) {
         boolean repetit = true;
@@ -163,41 +177,83 @@ if (Integer.parseInt(datauser[1]) <=  Integer.parseInt(datavui[1])){
 
     }
 
-public static void cerca (String [][] usuaris){
-String busca = sc.nextLine();
-Pattern patro = Pattern.compile(busca);
-for (int i =0;i<usuaris.length;i++){
-    boolean fila = false; 
-    for (int j =0;j<usuaris[0].length;j++){
-        Matcher m = patro.matcher(usuaris[i][j]);
-        if (m.find() && !fila){
-            System.out.print("\n");
-            System.out.println("-----Info de l'usuari que conté el paràmetre ----------");
-            System.out.println("Nom ");
-            System.out.println(usuaris[0][j]);
-            System.out.println("Cognom ");
-            System.out.println(usuaris[1][j]);
-            System.out.println("Adreça ");
-            System.out.println(usuaris[2][j]);
-            System.out.println("Població: ");
-            System.out.println(usuaris[3][j]);
-            System.out.println("Data de Naixement dd/MM/yyyy");
-            System.out.println(usuaris[4][j]);
-            System.out.println("Nom d'usuari ");
-            System.out.println(usuaris[5][j]);
-            System.out.println("Contrasenya: ");
-            System.out.println(usuaris[6][j]);
-            System.out.println("---------------");
-            System.out.print("\n");
-            fila = true;
+    public static void cerca(String[][] usuaris) {
+        String busca = sc.nextLine();
+        Pattern patro = Pattern.compile(busca);
+        bucle:
+
+        for (int i = 0; i < usuaris[0].length; i++) {
+            boolean fila = false;
+            for (int j = 0; j < usuaris.length; j++) {
+                Matcher m = patro.matcher(usuaris[j][i]);
+                if (busca.equalsIgnoreCase(usuaris[6][i])) {
+                    System.out.println("No es permet buscar per contrasenya");
+                    break bucle;
+                }
+                if (m.find() && !fila) {
+                    System.out.print("\n");
+                    System.out.println("-----Info de l'usuari que conté el paràmetre ----------");
+                    System.out.println("Nom ");
+                    System.out.println(usuaris[0][i]);
+                    System.out.println("Cognom ");
+                    System.out.println(usuaris[1][i]);
+                    System.out.println("Adreça ");
+                    System.out.println(usuaris[2][i]);
+                    System.out.println("Població: ");
+                    System.out.println(usuaris[3][i]);
+                    System.out.println("Data de Naixement dd/MM/yyyy");
+                    System.out.println(usuaris[4][i]);
+                    System.out.println("Nom d'usuari ");
+                    System.out.println(usuaris[5][i]);
+                    System.out.println("Contrasenya: ");
+                    System.out.println(usuaris[6][i]);
+                    System.out.println("---------------");
+                    System.out.print("\n");
+                    fila = true;
+                }
+            }
+        }
+
+    }
+
+    public static void ordenar(int[] edat) {
+        String opcio = sc.nextLine();
+
+        switch (opcio.toLowerCase()) {
+        case "ascendent":
+            for (int i = 0; i < (edat.length - 1); i++) {
+                for (int j = 0; j < edat.length; j++) {
+                    if (edat[i] > edat[j]) {
+                        int aux = edat[i];
+                        edat[i] = edat[j];
+                        edat[j] = aux;
+                    }
+                }
+            }
+            break;
+        case "descendent":
+            for (int i = 0; i < (edat.length - 1); i++) {
+                for (int j = 0; j < edat.length; j++) {
+                    if (edat[i] < edat[j]) {
+                        int aux = edat[j];
+                        edat[j] = edat[i];
+                        edat[i] = aux;
+                    }
+                }   
+            }
+            break;
+        }
+
+    }
+
+    public static void mostraedats(int[] edat) {
+        for (int i = 0; i < edat.length; i++) {
+             if (edat[i] == 0) {
+            }else{
+                System.out.println(edat[i]);
+            }
+            
         }
     }
-}
-
-}
-
-
-
-
 
 }
