@@ -118,13 +118,13 @@ for (int i=1;i<mostrapantalla.length-1;i++){
 
 // For per veure on són les mines x mines b no mina
 
-// for (int i=1;i<mina.length-1;i++){
-//     System.out.print("\n");
-//     System.out.print("\n");
-//     for (int j=1;j<mina[i].length-1;j++){
-//     System.out.print(mina[i][j]+"\t");
-//     }
-// }
+for (int i=1;i<mina.length-1;i++){
+    System.out.print("\n");
+    System.out.print("\n");
+    for (int j=1;j<mina[i].length-1;j++){
+    System.out.print(mina[i][j]+"\t");
+    }
+}
 
 
         }

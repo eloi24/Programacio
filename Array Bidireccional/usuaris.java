@@ -11,7 +11,7 @@ public class usuaris {
     public static int files = 8;
     public static int columnes = 20;
     public static String[][] usuaris;
-    public static int edat[] = new int[columnes];
+    public static int edat[][] = new int[2][columnes];
 
     public static void main(String[] args) {
         int numusuari = 0;
@@ -142,19 +142,23 @@ public class usuaris {
 
         if (Integer.parseInt(datauser[0]) <= Integer.parseInt(datavui[0])) {
             if (Integer.parseInt(datauser[1]) <= Integer.parseInt(datavui[1])) {
-                edat[numusuari] = Integer.parseInt(datavui[2]) - Integer.parseInt(datauser[2]);
+                edat[0][numusuari] = Integer.parseInt(datavui[2]) - Integer.parseInt(datauser[2]);
+                edat[1][numusuari]=numusuari;
 
             }
             if (Integer.parseInt(datauser[1]) > Integer.parseInt(datavui[1])) {
-                edat[numusuari] = Integer.parseInt(datavui[2]) - Integer.parseInt(datauser[2]) - 1;
+                edat[0][numusuari] = Integer.parseInt(datavui[2]) - Integer.parseInt(datauser[2]) - 1;
+                edat[1][numusuari]=numusuari;
             }
         } else {
             if (Integer.parseInt(datauser[1]) <= Integer.parseInt(datavui[1])) {
-                edat[numusuari] = Integer.parseInt(datavui[2]) - Integer.parseInt(datauser[2]);
+                edat[0][numusuari] = Integer.parseInt(datavui[2]) - Integer.parseInt(datauser[2]);
+                edat[1][numusuari]=numusuari;
 
             }
             if (Integer.parseInt(datauser[1]) > Integer.parseInt(datavui[1])) {
-                edat[numusuari] = Integer.parseInt(datavui[2]) - Integer.parseInt(datauser[2]) - 1;
+                edat[0][numusuari] = Integer.parseInt(datavui[2]) - Integer.parseInt(datauser[2]) - 1;
+                edat[1][numusuari]=numusuari;
             }
 
         }
@@ -216,17 +220,17 @@ public class usuaris {
 
     }
 
-    public static void ordenar(int[] edat) {
+    public static void ordenar(int[][] edat) {
         String opcio = sc.nextLine();
 
         switch (opcio.toLowerCase()) {
         case "ascendent":
             for (int i = 0; i < (edat.length - 1); i++) {
                 for (int j = 0; j < edat.length; j++) {
-                    if (edat[i] > edat[j]) {
-                        int aux = edat[i];
-                        edat[i] = edat[j];
-                        edat[j] = aux;
+                    if (edat[0][i] > edat[0][j]) {
+                        int aux = edat[0][i];
+                        edat[0][i] = edat[0][j];
+                        edat[0][j] = aux;
                     }
                 }
             }
@@ -234,10 +238,10 @@ public class usuaris {
         case "descendent":
             for (int i = 0; i < (edat.length - 1); i++) {
                 for (int j = 0; j < edat.length; j++) {
-                    if (edat[i] < edat[j]) {
-                        int aux = edat[j];
-                        edat[j] = edat[i];
-                        edat[i] = aux;
+                    if (edat[0][i] < edat[0][j]) {
+                        int aux = edat[0][j];
+                        edat[0][j] = edat[0][i];
+                        edat[0][i] = aux;
                     }
                 }   
             }
@@ -246,7 +250,7 @@ public class usuaris {
 
     }
 
-    public static void mostraedats(int[] edat) {
+    public static void mostraedats(int[][] edat) {
         for (int i = 0; i < edat.length; i++) {
              if (edat[i] == 0) {
             }else{

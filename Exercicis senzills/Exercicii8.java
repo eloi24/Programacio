@@ -2,11 +2,11 @@ import java.util.Random;
 public class Exercicii8{
     public static void main(String[] args) {
       Random aleatori= new Random();
-      int premi = aleatori.nextInt(10);
+      int premi = aleatori.nextInt(100);
       int intents = 0;
 boolean trobat = false;
 System.out.println("El número escollit és: "+premi);
-int arraynums [] = new int [10];
+int arraynums [] = new int [100];
 int i;
 
 for (i=0; i<arraynums.length;i++){
@@ -14,7 +14,7 @@ for (i=0; i<arraynums.length;i++){
 }
 
 while(!trobat){
-int aleatori1 = aleatori.nextInt(10);
+int aleatori1 = aleatori.nextInt(100);
 boolean igual = false;
 
 for (i=0;i<arraynums.length;i++){
@@ -31,7 +31,10 @@ if (!igual){
 if (premi==aleatori1){
     trobat=true;
 }
+else {
+    System.out.println("el número "+i+" ja hi era");  
 }
-System.out.println("Has necessitat "+intents+" intents");
+}
+System.out.println("Hem necessitat "+intents+" intents");
     }
 }

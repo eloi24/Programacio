@@ -23,6 +23,7 @@ public static int cont2;
             for (int j = 0;j < jugadors[0].length;j++){  
             }
         }
+        
 for (int i=0;i<rondes;i++){
     System.out.println("Ronda "+(i+1));
     generar(paraula,vocal,consonant);
@@ -30,7 +31,7 @@ for (int f =0;f<jugadors.length;f++){
     System.out.println("----------------------");
     System.out.println("Torn del jugador: "+jugadors[f][0]);
     mostrar(paraula);
-    int resultat = sc.nextInt();
+    String resultat = sc.nextLine();
     for (int j=0;j<jugadors[0].length;j++){
 
     }
@@ -83,6 +84,7 @@ public static void mostrar (String[] paraula){
     for (int i =0;i<paraula.length;i++){
         System.out.print("| "+paraula[i]+" | \t" );
     }
+    System.out.print("\n");
 }
 
 

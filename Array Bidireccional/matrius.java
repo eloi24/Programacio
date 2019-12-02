@@ -7,6 +7,9 @@ public class matrius {
     int mesgran = 0;
     int array0[] = new int[9];
     String arraybingo[][] = new String[3][9];
+
+
+    
     for (int i = 0; i < array.length; i++) {
 
       for (int j = 0; j < array[i].length; j++) {

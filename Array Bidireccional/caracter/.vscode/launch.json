@@ -2,9 +2,9 @@
     "configurations": [
         {
             "type": "java",
-            "name": "CodeLens (Launch) - minas",
+            "name": "CodeLens (Launch) - caracters",
             "request": "launch",
-            "mainClass": "minas"
+            "mainClass": "caracters"
         }
     ]
 }

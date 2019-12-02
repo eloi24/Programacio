@@ -1,0 +1,58 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - usuaris",
+            "request": "launch",
+            "mainClass": "usuaris"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - caracter",
+            "request": "launch",
+            "mainClass": "caracter"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Motsjoc",
+            "request": "launch",
+            "mainClass": "Motsjoc"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Mots",
+            "request": "launch",
+            "mainClass": "Mots"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - Motsencadenats",
+            "request": "launch",
+            "mainClass": "Motsencadenats"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - flota",
+            "request": "launch",
+            "mainClass": "flota"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - minas",
+            "request": "launch",
+            "mainClass": "minas"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - buscaminas",
+            "request": "launch",
+            "mainClass": "buscaminas"
+        },
+        {
+            "type": "java",
+            "name": "CodeLens (Launch) - matrius",
+            "request": "launch",
+            "mainClass": "matrius"
+        }
+    ]
+}
